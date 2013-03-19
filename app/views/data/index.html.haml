@@ -1,0 +1,27 @@
+.row
+  .span11.offset4
+    .table-header
+      %h3 GooseLab Email Analytics Data
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Email
+          %th IP
+          %th Key
+          %th Date/Time Opened
+      %tbody
+        -@data.each do |d|
+          %tr
+            %td= d.email
+            %td= d.ip
+            -#%td= 'Undisclosed'
+            -#%td= '--'
+            %td= d.enckey
+            %td= d.created_at
+      
+.row
+  .span11.offset4
+    #time-chart
+      = render :partial => 'chart'
+        
+

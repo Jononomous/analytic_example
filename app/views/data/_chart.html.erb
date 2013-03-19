@@ -1,0 +1,16 @@
+<script type='text/javascript'>
+$(document).ready(function() {
+new Highcharts.Chart({
+chart: { renderTo: 'time-chart' },
+title: { text: 'Volume vs Time' },
+xAxis: { type: 'datetime' },
+yAxis: { title: { text: 'Click Volume' }},
+series: [{
+name: 'Clicks',
+pointInterval: <%= 1.day * 1000 %>,
+pointStart: <%= @histo.zip.map{|x| x.flatten }.first[0]  %>,
+data: <%= @histo.zip.map{|x| x.flatten } %>
+}]
+});
+});
+</script>
