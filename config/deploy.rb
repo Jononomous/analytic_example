@@ -2,7 +2,7 @@ require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 set :application, "pidginpost.com"
-set :repository,  "~/email_dev"
+set :repository,  "~/email_access"
 set :scm, :git
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
