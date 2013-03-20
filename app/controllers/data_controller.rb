@@ -7,6 +7,9 @@ class DataController < ApplicationController
 
   def histogram(times)
     h = Hash.new
+    
+    #Create a histogram hash of times grouped closely together
+    #Inefficient, remove after testing
     times.uniq.each do |time|
       h[time] = 0
     end
