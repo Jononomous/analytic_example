@@ -1,5 +1,15 @@
 <html>
 <?php
+  function decrypt($str)
+  {
+    $array_str = explode('-',$str);
+    $secret = explode(" ","k e y"); 
+    for ($i = 0, $n = sizeof($array_str); $i < $n; $i++)
+    {
+      $vals_array[] = chr(intval($array_str[$i])/ord($secret[$i%3]));
+    }
+    return $vals_array;
+  }
   //grab link information
   $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   $parsed = parse_url($link);
@@ -36,17 +46,5 @@
  
   //header("Location: http://www.".$redirect_url);
   header("Location: http://www.gooselab.com/thanks");
-
-  //functions
-  function decrypt($str)
-  {
-    $array_str = explode('-',$str);
-    $secret = explode(" ","k e y"); 
-    for ($i = 0, $n = sizeof($array_str); $i < $n; $i++)
-    {
-      $vals_array[] = chr(intval($array_str[$i])/ord($secret[$i%3]));
-    }
-    return $vals_array;
-  }
 ?>
 </html>
